@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from 'prop-types'
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {  
+
+  state = {
+    isLoading: true,
+    movies:[]
+  }
+
+  setLoading() {
+    this.setState(this.state.isLoading, cur => !cur)
+  }
+
+  componentDidMount() {
+    // console.log('컴포넌트 렌더링 됨')
+  }
+
+  componentDidUpdate() {
+    // console.log('컴포넌트 업데이트 됨')
+  }
+
+  render() {
+    const { isLoading } = this.state;
+
+    return (
+      <div>
+        {isLoading ? <h1>Now Loading ...</h1>: <h1>준비 완료!</h1>}
+      </div>
+    )
+  }
 }
 
 export default App;
